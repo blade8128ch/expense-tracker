@@ -1,7 +1,7 @@
 
 <h1>家庭記帳本<h1>
   
-![cv](./public/stylesheets/A1.PNG)
+![cv](./01.png)
 
 <h2>介紹</h2>
 可新增,修改,刪除,分類搜尋 記帳項目。
@@ -54,3 +54,4 @@
 <h2>開始使用 (Heroku)</h2>
 進入下列網址:
 <https://expense-tracker-balde-93de1c06db47.herokuapp.com/>
+種子帳密與上面步驟6相同.
