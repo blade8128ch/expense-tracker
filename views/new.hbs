@@ -1,6 +1,38 @@
-<form action="/todos" method="POST" style="display: inline;">
-  <div class="input-group">
-    <input class="form-control" type="text" placeholder="name" name="name">
-    <button class="btn btn-success" type="submit">Create</button>
+<div class='container' mt-5>
+  <div class='row'>
+    <div class='row row-cols-sm-3'>
+      <form action='/records' method='POST' style='display: inline;'>
+
+        <div><label>名稱</label>
+          <input type='text' name='name' id='name' required /></div>
+        <div><label>日期</label>
+
+          <input type='date' name='date' id='date' required />
+        </div>
+        <div><label>類別</label>
+
+          <select class='form-select' id='categoryId' name='categoryId'>
+            <option value='1'>家居物業</option>
+            <option value='2'>交通出行</option>
+            <option value='3'>休閒娛樂</option>
+            <option value='4'>餐飲食品</option>
+            <option value='5'>其他</option>
+
+          </select>
+        </div>
+        <div><label>金額</label>
+          <input
+            type='number'
+            name='amount'
+            id='amount'
+            min='0'
+            required
+          /></div>
+
+        <button class='btn btn-success' type='submit'>新增</button>
+        <a href='/' class='col-6 btn btn-outline-secondary mx-1'>返回</a>
+
+      </form>
+    </div>
   </div>
-</form>
+</div>

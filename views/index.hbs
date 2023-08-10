@@ -1,23 +1,53 @@
-<a href="/todos/new" class="btn btn-primary mb-3">Create</a>
-<ul class="list-group">
-  {{#each todos}}
-  <li class="list-group-item">
-    <div class="row">
-      <div class="col-auto me-auto">
-        <input style="vertical-align: middle;" type="checkbox" name="isDone" {{#if this.isDone }} checked {{/if}}
-          disabled>
-        <h4 style="display: inline; vertical-align: middle;">
-          {{ this.name }}
-        </h4>
+<form action='/search'>
+  <div class='input-group'>
+    <select
+      class='form-select'
+      id='sort'
+      name='sort'
+      onchange='this.form.submit()'
+    >
+      <option value='0'>類別</option>
+      <option value='1'>家居物業</option>
+      <option value='2'>交通出行</option>
+      <option value='3'>休閒娛樂</option>
+      <option value='4'>餐飲食品</option>
+      <option value='5'>其他</option>
+      <option value='6'>全部類別</option>
+    </select>
+  </div>
+</form>
+
+<ul class='list-group'>
+
+  <h1 class='text-center'>總金額 {{totalAmount}}</h1>
+  {{#each records}}
+    <li class='list-group-item'>
+      <div class='row'>
+        <div class='col-auto me-auto'>
+          {{{this.icon}}}
+          <div class='col-8'>
+            <div>{{this.name}}</div>
+            <div>{{this.date}}</div>
+          </div>
+        </div>
+        <div class='col-auto me-0 mt-auto w-25 text-end'>
+          <h3>金額 : {{this.amount}}</h3>
+        </div>
+
+        <div class='col-auto'>
+          <a class='btn btn-success' href='./records/{{this._id}}/edit'>edit</a>
+          <form
+            action='./records/{{this._id}}?_method=DELETE'
+            method='POST'
+            style='display: inline;'
+          >
+            <button class='btn btn-danger' type='submit'>delete</button>
+          </form>
+        </div>
       </div>
-      <div class="col-auto">
-        <a class="btn btn-secondary" href="./todos/{{ this._id }}">detail</a>
-        <a class="btn btn-success" href="./todos/{{ this._id }}/edit">edit</a>
-        <form action="./todos/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
-          <button class="btn btn-danger" type="submit">delete</button>
-        </form>
-      </div>
-    </div>
-  </li>
+    </li>
   {{/each}}
 </ul>
+<div class='d-grid gap-2 col-4 mx-auto m-4'>
+  <a href='/records/new' class='btn btn-primary mb-3'>Create</a>
+</div>

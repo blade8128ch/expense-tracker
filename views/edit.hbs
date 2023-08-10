@@ -1,9 +1,59 @@
-<form action="/todos/{{ todo._id }}?_method=PUT" method="POST" style="display: inline;">
-  <div class="input-group">
-    <div class="input-group-text">
-      <input type="checkbox" class="form-check-input mt-0" name="isDone" {{#if todo.isDone }} checked {{/if}}>
+<div class='container' mt-5>
+  <div class='row'>
+    <div class='row row-cols-sm-3'>
+      <form
+        action='/records/{{record._id}}?_method=PUT'
+        method='POST'
+        style='display: inline;'
+      >
+
+        <div><label>名稱</label>
+          <input
+            type='text'
+            name='name'
+            id='name'
+            value='{{record.name}}'
+            required
+          /></div>
+        <div><label>日期</label>
+          <input
+            type='date'
+            name='date'
+            id='date'
+            value='{{record.date}}'
+            required
+          />
+        </div>
+        <div><label>類別</label>
+
+          <select class='form-select' id='categoryId' name='categoryId'>
+            <option
+              selected
+              hidden
+              value='{{record.categoryId}}'
+            >{{categoryName}}</option>
+            <option value='1'>家居物業</option>
+            <option value='2'>交通出行</option>
+            <option value='3'>休閒娛樂</option>
+            <option value='4'>餐飲食品</option>
+            <option value='5'>其他</option>
+
+          </select>
+        </div>
+        <div><label>金額</label>
+          <input
+            type='number'
+            name='amount'
+            id='amount'
+            min='0'
+            value='{{record.amount}}'
+            required
+          /></div>
+
+        <button class='btn btn-success' type='submit'>儲存</button>
+        <a href='/' class='col-6 btn btn-outline-secondary mx-1'>返回</a>
+
+      </form>
     </div>
-    <input class="form-control" type="text" placeholder="name" name="name" value="{{ todo.name }}">
-    <button class="btn btn-success" type="submit">Save</button>
   </div>
-</form>
+</div>
