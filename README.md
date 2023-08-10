@@ -52,6 +52,9 @@
    ```
 
 <h2>開始使用 (Heroku)</h2>
+
 進入下列網址:
 <https://expense-tracker-balde-93de1c06db47.herokuapp.com/>
+  https://expense-tracker-balde-93de1c06db47.herokuapp.com/
+  <https://expense-tracker-balde-93de1c06db47.herokuapp.com/>
 種子帳密與上面步驟6相同.
